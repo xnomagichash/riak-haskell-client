@@ -147,4 +147,3 @@ mapReduce conn job f z0 = loop z0 =<< (exchange conn . Req.mapReduce $ job)
       if fromMaybe False . MapReduce.done $ mr
         then return z'
         else loop z' =<< recvResponse conn
-        
